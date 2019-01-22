@@ -51,6 +51,8 @@ def dms_to_detector(data, detector):
 
     """
 
+    print('Detector is {}'.format(detector))
+
     if detector == 'NRS1':
         # NRS1 is flipped over the line X=Y
         data = np.swapaxes(data, 2, 3)
