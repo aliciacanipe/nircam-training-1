@@ -11,6 +11,7 @@ Authors:
 --------
     - Matt Hill
     - Alicia Canipe (updates for NIRCam)
+    - Brian Brooks
 
 Dependencies:
 -------------
@@ -58,6 +59,12 @@ def dms_to_detector(data, detector):
     if detector == 'NRS2':
         # NRS2 is flipped over the line Y=X, then rotated 180 degrees
         data = np.swapaxes(data, 2, 3)[:, :, ::-1, ::-1]
+
+    if detector =="A5":
+        detector = "ALONG"
+
+    if detector =="B5":
+        detector ="BLONG"
 
     if detector in ['NRCA1', 'NRCA3', 'NRCALONG', 'NRCB2', 'NRCB4']:
         # NRCA1, NRCA3, NRCALONG, NRCB2, NRCB4 are just flipped in X
